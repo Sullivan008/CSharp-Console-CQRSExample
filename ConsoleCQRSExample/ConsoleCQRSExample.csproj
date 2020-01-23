@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16EEB80F-1916-47BC-9103-D7BD847ABCAF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleCQRSExample</RootNamespace>
+    <AssemblyName>ConsoleCQRSExample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ConsoleCQRSExample\ConsoleCQRSExampleHelpers.cs" />
+    <Compile Include="Classes\CQRS\Commands\PersonCommands\ChangeAgeCommand.cs" />
+    <Compile Include="Classes\CQRS\Commands\PersonCommands\ChangeNameCommand.cs" />
+    <Compile Include="Classes\CQRS\Commands\PersonCommands\PersonCommandMethods.cs" />
+    <Compile Include="Classes\CQRS\EventBrokers\EventBroker.cs" />
+    <Compile Include="Classes\CQRS\EventBrokers\PersonEventBroker\PersonEventBrokerHelpers.cs" />
+    <Compile Include="Classes\CQRS\EventBrokers\PersonEventBroker\PersonUndoMethods.cs" />
+    <Compile Include="Classes\CQRS\Events\PersonEvents\AgeChangedEvent.cs" />
+    <Compile Include="Classes\CQRS\Events\PersonEvents\NameChangedEvent.cs" />
+    <Compile Include="Classes\CQRS\Queries\PersonQueries\AgeQuery.cs" />
+    <Compile Include="Classes\CQRS\Queries\PersonQueries\NameQuery.cs" />
+    <Compile Include="Classes\CQRS\Queries\PersonQueries\PersonQueriesMethods.cs" />
+    <Compile Include="Classes\SwitchingOnTypes\TypeSwitch.cs" />
+    <Compile Include="ConsoleCQRSExample.cs" />
+    <Compile Include="Models\CQRSModels\Command.cs" />
+    <Compile Include="Models\CQRSModels\Event.cs" />
+    <Compile Include="Models\CQRSModels\Query.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
